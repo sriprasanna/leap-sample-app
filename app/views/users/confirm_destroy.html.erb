@@ -1,0 +1,7 @@
+<% form_for @user, :method :delete do |f| %>  
+  <h2>Are you sure you want to destroy this user?</h2>
+  <p>
+    <%= submit_tag "Destroy" %>
+    or <%= link_to "cancel", users_path %>
+  </p>
+<% end %>

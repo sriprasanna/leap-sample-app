@@ -46,6 +46,10 @@ def create
     redirect_to users_url
   end
 
+  def confirm_destroy
+  @user = User.find(params[:id])
+  end
+
   private
 
     def user_params

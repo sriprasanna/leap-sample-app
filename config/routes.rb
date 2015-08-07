@@ -18,10 +18,15 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users
+  resources :users do
+  collection do
+    get 'confirm_destroy'
+  end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-
+  
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
