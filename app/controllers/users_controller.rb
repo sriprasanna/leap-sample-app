@@ -47,7 +47,7 @@ def create
   end
 
   def confirm_destroy
-  @user = User.find(params[:id])
+  @user = User.find(current_user)
   end
 
   private
