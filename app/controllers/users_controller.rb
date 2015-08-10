@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-def create
+  def create
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
@@ -51,7 +51,7 @@ def create
   user = User.find(params[:user_id])
   if current_user.admin?
     user.deactivate_account!
-    redirect_to users_path 
+    redirect_to users_url
   else
     redirect_to :back
   end
