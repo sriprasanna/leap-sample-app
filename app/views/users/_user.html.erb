@@ -7,8 +7,7 @@
   <% end %>
 
   <% if current_user.admin? && @user != current_user %>
-  <%=link_to "deactivate", deactivate_path(@user), method: :post, 
-                                         data: { confirm: "Are you sure?"}%> 
+  <%=link_to "Deactivate", deactivate_user_path(user), method: :put%>
   <% end %>
 
 </li>

@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  put 'deactivate/:id(.:format)', :to => 'users#deactivate', :as => :deactivate_user
+
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  post '/deactivate', to: "users#deactivate"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
