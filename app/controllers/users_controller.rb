@@ -48,22 +48,15 @@ class UsersController < ApplicationController
   end
   
   def deactivate
-    # you did not implement the admin? method for current_user yet. So
-    # I commented out this part for simplification
-
-    # if current_user.admin?
-    #   user.deactivate_account!
-    #   redirect_to users_path
-    # else
-    #   redirect_to :back
-    # end
-
-    # I have added a new method named deactivate_account in User model
+    # I have added a new method named deactivate_account! in User model
     # which updates the user by setting activated = false
-
     user = User.find(params[:id])
-    user.deactivate_account
-    redirect_to users_path
+    if current_user.admin?
+      user.deactivate_account!
+      redirect_to users_path
+    else
+      redirect_to :back
+    end
  end
 
   private

@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
     update_columns(activated: true, activated_at: Time.zone.now)
   end
 
-  def deactivate_account
+  def deactivate_account!
     update_attributes!(activated: false)
   end
 
