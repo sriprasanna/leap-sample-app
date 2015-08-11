@@ -6,9 +6,9 @@
                                   data: { confirm: "You sure?" } %>
   <% end %>
 
-  <% if current_user.admin? && !current_user?(user) %>
-  <%=link_to "deactivate", user, method: :post,
-                                 data: { confirm: "Are you sure?" } %>
-   <% end %>
+  <% if current_user.admin? && @user != current_user %>
+  <%=link_to "deactivate", deactivate_path(@user), method: :post, 
+                                         data: { confirm: "Are you sure?"}%> 
+  <% end %>
 
 </li>

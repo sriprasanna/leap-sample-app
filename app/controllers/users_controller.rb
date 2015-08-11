@@ -48,14 +48,15 @@ class UsersController < ApplicationController
   end
   
   def deactivate
-  user = User.find(params[:user_id])
+  raise params.inspect
+  user = User.find(params[:id])
   if current_user.admin?
     user.deactivate_account!
-    redirect_to users_url
+    redirect_to users_path 
   else
     redirect_to :back
-  end
-  end
+ end
+end
 
   private
 
