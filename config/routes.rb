@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
+  put 'deactivate/:id(.:format)', :to => 'users#deactivate', :as => :deactivate_user
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
