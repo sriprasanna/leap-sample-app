@@ -5,4 +5,9 @@
       <%= link_to "delete", user, method: :delete, 
                                   data: { confirm: "You sure?" } %>
   <% end %>
+
+  <% if current_user.admin? && @user != current_user %>
+  <%=link_to "Deactivate", deactivate_user_path(user), method: :put,
+                                                       data: { confirm: "You sure?" }%>
+  <% end %>
 </li>
